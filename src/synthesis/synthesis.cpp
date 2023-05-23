@@ -37,17 +37,9 @@ void define_synthesis(py::module& m) {
             &storm::synthesis::CounterexampleGenerator<>::printProfiling,
             "Print profiling stats."
             )
-        
-        /*.def_property_readonly(
-            "stats",
-            [](storm::synthesis::CounterexampleGenerator<> & counterexample) {
-                return counterexample.stats();
-            },
-            "Read stats."
-        );*/
         ;
 
-    // Counterexample generation
+    // MDP Counterexample generation
     py::class_<storm::synthesis::CounterexampleGeneratorMdp<>>(
         m, "CounterexampleGeneratorMdp", "Counterexample generation"
     )
@@ -61,6 +53,6 @@ void define_synthesis(py::module& m) {
         .def("prepare_mdp", &storm::synthesis::CounterexampleGeneratorMdp<>::prepareMdp)
         .def("construct_conflict", &storm::synthesis::CounterexampleGeneratorMdp<>::constructConflict)
         ;
-    
+
 }
 
